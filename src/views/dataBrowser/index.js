@@ -1,2 +1,2 @@
-import component from "./DataBrowser.vue";
+import component from "./index.vue";
 export default component;

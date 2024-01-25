@@ -1,12 +1,12 @@
 {
-  "name": "brain_web",
+  "name": "RSCA_web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build:prod": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "push-dir --dir=dist --branch=gh-pages2 --cleanup"
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "@antv/g2plot": "^2.4.15",
@@ -18,9 +18,11 @@
     "github-markdown-css": "^5.1.0",
     "highlight.js": "^11.5.1",
     "html2canvas": "^1.4.1",
+    "plotly.js": "^2.28.0",
     "vue": "^2.6.14",
     "vue-json-csv": "^1.2.12",
     "vue-markdown": "^2.2.4",
+    "vue-plotly": "^1.1.0",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2",
     "xlsx": "^0.18.5"

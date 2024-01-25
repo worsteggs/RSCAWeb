@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <b-pane-label label="REGION" />
+  <div class="flex-container">
+    <b-pane-label label="Dataset" />
     <geneSearch v-model="searchRegion" :data="regionData" />
+
   </div>
 </template>
 <script>
@@ -81,3 +82,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+.flex-container {
+  display: flex;
+  /* align-items: center; */
+}
+</style>

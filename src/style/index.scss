@@ -150,6 +150,12 @@ hr {
 
 }
 
+.flex-container {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
 .mb10 {
   margin-bottom: 10px;
 }

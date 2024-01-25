@@ -1,12 +1,11 @@
 <template>
-  <div>
-    <b-pane-label label="REGION" />
-    <geneSearch v-model="searchRegion" :data="regionData" />
+  <div class="flex-container">
+    <b-pane-label label="Region"></b-pane-label>
+    <geneSearch v-model="searchRegion" :data="cellTypeData" />
   </div>
 </template>
 <script>
-import { REGION } from "@/utils/Atlas";
-import RegionDEG from "@/utils/RegionDEG.json";
+import CellTypeDEG from "@/utils/CellTypeDEG.json";
 export default {
   name: "MarkerRegion",
   props: {
@@ -18,17 +17,13 @@ export default {
       type: Array,
       default: () => [],
     },
-    regionDEG: {
+    cellTypeDEG: {
       type: Boolean,
       default: false,
     },
     atlas: {
       type: String,
       default: "Adult",
-    },
-    VolcanoBy: {
-      type: String,
-      default: "",
     },
   },
   components: {
@@ -40,23 +35,23 @@ export default {
     },
     data: {
       handler (val) {
-        this.regionData = val;
+        this.cellTypeData = val;
       },
-      immediate: true
+      deep: true
     },
     searchRegion: {
       handler (val) {
         this.$emit("change", val);
         this.$emit("input", val);
-      }
+      },
     },
     atlas: {
       handler (val) {
         this.searchRegion = this.value
-        if (this.regionDEG) {  // if regionDEG is true, then use RegionDEG.json
-          val != '' && (this.regionData = RegionDEG[val])
-        } else {  // if regionDEG is false, then use Atlas.json
-          this.regionData = this.data
+        if (this.cellTypeDEG) {  // if regionDEG is true, then use CellTypeDEG.json
+          val != '' && (this.cellTypeData = CellTypeDEG[val])
+        } else {  // if regionDEG is false, then use VolcanoByCellType.json
+          this.cellTypeData = this.data
         }
       },
       immediate: true
@@ -65,19 +60,27 @@ export default {
   data () {
     return {
       searchRegion: this.value,
-      REGION,
-      regionData: []
+      cellTypeData: []
     };
   },
   methods: {
-
+    handleNodeClick (data) {
+      console.log(data);
+      this.searchRegion = data.label;
+    },
   },
   async mounted () {
-    if (this.regionDEG) {
-      this.regionData = RegionDEG[this.atlas]
+    if (this.cellTypeDEG) {
+      this.cellTypeData = CellTypeDEG[this.atlas.split(" ")[0]]
     } else {
-      this.regionData = this.data
+      this.cellTypeData = this.data
     }
   },
 };
 </script>
+<style scoped>
+.flex-container {
+  display: flex;
+  /* align-items: center; */
+}
+</style>

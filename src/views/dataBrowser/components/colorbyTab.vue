@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <b-pane-label label="REGION" />
+  <div class="flex-container">
+    <b-pane-label label="Color By" />
     <geneSearch v-model="searchRegion" :data="regionData" />
+
   </div>
 </template>
 <script>

@@ -54,8 +54,12 @@ module.exports = {
         },
       },
     },
+    devServer: {
+      client: {
+        overlay: false // 编译错误时，取消全屏覆盖（建议关掉）
+      },
   },
-  publicPath: '/BCAGitPages',//github仓库名
-  assetsDir: 'BCAGitPages',//同上，否则访问不到静态资源
+  publicPath: '/RSCAWeb',//github仓库名
+  assetsDir: 'RSCAWeb',//同上，否则访问不到静态资源
   outputDir:"dist",
 };

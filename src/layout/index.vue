@@ -17,11 +17,11 @@ export default {
   components: {
     Header,
     Footer,
-    Adult: () => import("@/views/dataBrowser/AdultBrowser"),
-    Fetal: () => import("@/views/dataBrowser/FetalBrowser"),
-    Organoid: () => import("@/views/dataBrowser/OrganoidBrowser"),
-    Tumour: () => import("@/views/dataBrowser/TumourBrowser"),
-    Mouse: () => import("@/views/dataBrowser/MouseBrowser"),
+    // Adult: () => import("@/views/dataBrowser/AdultBrowser"),
+    // Fetal: () => import("@/views/dataBrowser/FetalBrowser"),
+    // Organoid: () => import("@/views/dataBrowser/OrganoidBrowser"),
+    // Tumour: () => import("@/views/dataBrowser/TumourBrowser"),
+    // Mouse: () => import("@/views/dataBrowser/MouseBrowser"),
   },
   data () {
     return {
@@ -43,7 +43,7 @@ export default {
         this.filterIframeRouter(route);
         const mainPath = route.path.split("/")[1];
         console.log(mainPath)
-        if (mainPath === 'contact' || mainPath === 'gene') {
+        if (mainPath === 'contact' || mainPath === 'gene' || mainPath === 'dataBrowser') {
           document.body.style.backgroundColor = '#F7F8FA'
         } else {
           document.body.style.backgroundColor = 'white'
